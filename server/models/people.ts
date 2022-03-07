@@ -6,18 +6,18 @@ const getAllPeople = async () => {
   return people.rows;
 };
 
-const deletePerson = async (pid: String) => {
+const deletePerson = async (pid: string) => {
   const result = await pool.query("DELETE FROM people where id = $1", [pid]);
   console.log("delete", result);
   return result.rowCount !== 0;
 };
 
 const addPerson = async (person: {
-  firstName?: String;
-  lastName?: String;
-  age: String;
-  first_name?: String;
-  last_name?: String;
+  firstName?: string;
+  lastName?: string;
+  age: string;
+  first_name?: string;
+  last_name?: string;
 }) => {
   const result = await pool.query(
     "INSERT INTO people (first_name, last_name, age) VALUES ($1, $2, $3)",
@@ -28,10 +28,10 @@ const addPerson = async (person: {
 };
 
 const updatePersonWithId = async (
-  personId: String,
-  first_name: String,
-  last_name: String,
-  age: String
+  personId: string,
+  first_name: string,
+  last_name: string,
+  age: string
 ) => {
   console.log(last_name);
   const result = await pool.query(
@@ -41,7 +41,7 @@ const updatePersonWithId = async (
   return result.rowCount !== 0;
 };
 
-const findPersonById = async (pid: String) => {
+const findPersonById = async (pid: string) => {
   const person = await pool.query("SELECT * FROM places WHERE id=$1", [pid]);
   console.log("Person", person);
   return person.rows[0];

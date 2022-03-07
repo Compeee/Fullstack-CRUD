@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
 
 interface Props {
-  id: Number | undefined;
-  closeModal: (isOpen: Boolean) => void;
+  id: number | undefined;
+  closeModal: (isOpen: boolean) => void;
 }
 
 export const Modal: React.FC<Props> = (props) => {
-  const [firstName, setFirstName] = useState<String>();
-  const [lastName, setLastName] = useState<String>();
-  const [age, setAge] = useState<String>();
-  const updatePerson = (pid: Number | undefined) => {
+  const [firstName, setFirstName] = useState<string>();
+  const [lastName, setLastName] = useState<string>();
+  const [age, setAge] = useState<string>();
+  
+  const updatePerson = (pid: number | undefined) => {
     if (firstName && lastName && age) {
       axios.patch<Object>(`http://localhost:5000/api/${pid}`, {
         first_name: firstName,

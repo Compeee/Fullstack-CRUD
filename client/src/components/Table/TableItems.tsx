@@ -13,14 +13,13 @@ interface Person {
 export const TableItems: React.FC = () => {
   const [peopleData, setPeopleData] = useState<Person[]>([]);
 
-  const [firstName, setFirstName] = useState<String>();
-  const [lastName, setLastName] = useState<String>();
-  const [age, setAge] = useState<String>();
+  const [firstName, setFirstName] = useState<string>();
+  const [lastName, setLastName] = useState<string>();
+  const [age, setAge] = useState<string>();
 
   const [selectedPerson, setSelectedPerson] = useState<Person>();
 
-  const [openModal, setOpenModal] = useState<Boolean>(false);
-
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const getPeople = () => {
     axios
@@ -34,19 +33,13 @@ export const TableItems: React.FC = () => {
     if (firstName && lastName && age && age) {
       axios
         .post<Person>("http://localhost:5000/api", { firstName, lastName, age })
-        .then((res: AxiosResponse) => {
-          getPeople();
-        });
+        .then(() => getPeople());
     } else {
       console.log("Empty fields");
     }
   };
-  const deleteHandler = (id: Number) => {
-    axios
-      .delete(`http://localhost:5000/api/${id}`)
-      .then((res: AxiosResponse) => {
-        getPeople();
-      });
+  const deleteHandler = (id: number) => {
+    axios.delete(`http://localhost:5000/api/${id}`).then(() => getPeople());
   };
 
   useEffect(() => {
