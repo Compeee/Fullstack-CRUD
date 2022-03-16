@@ -1,3 +1,3 @@
-# Harjoitustehtävä-Netum - Eero Kaarnalehto
+# Fullstack-CRUD- Eero Kaarnalehto
 
 TypeScript / React / Node / PostgreSQL 
