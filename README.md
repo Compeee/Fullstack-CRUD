@@ -1,3 +1,3 @@
-# Fullstack-CRUD- Eero Kaarnalehto
+# Fullstack-CRUD
 
 TypeScript / React / Node / PostgreSQL 
